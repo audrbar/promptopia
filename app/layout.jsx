@@ -10,10 +10,10 @@ export const metadata = {
 const Rootlayout = ({ children }) => {
     return (
         <html lang="en">
-            <Head>
+            <head>
                 <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
                 <script src="https://files.bpcontent.cloud/2024/12/24/18/20241224183235-ZCDCRQNL.js"></script>
-            </Head>
+            </head>
             <body>
                 <Provider>
                     <div className='main'>
