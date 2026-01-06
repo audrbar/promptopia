@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const UpdatePrompt = () => {
+const UpdatePromptContent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const promptId = searchParams.get("id");
@@ -59,6 +59,14 @@ const UpdatePrompt = () => {
             submitting={submitting}
             handleSubmit={updatePrompt}
         />
+    );
+};
+
+const UpdatePrompt = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <UpdatePromptContent />
+        </Suspense>
     );
 };
 
