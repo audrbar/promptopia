@@ -1,6 +1,7 @@
 import '@styles/globals.css';
 import Nav from '@components/Nav';
 import Provider from '@components/Provider';
+import Script from 'next/script';
 
 export const metadata = {
     title: 'Promptopia',
@@ -20,22 +21,26 @@ const Rootlayout = ({ children }) => {
                         {children}
                     </main>
                 </Provider>
-                <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-                <script src="https://files.bpcontent.cloud/2024/12/24/18/20241224183235-ZCDCRQNL.js"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
+                <Script
+                    src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"
+                    strategy="lazyOnload"
+                />
+                <Script
+                    src="https://files.bpcontent.cloud/2024/12/24/18/20241224183235-ZCDCRQNL.js"
+                    strategy="lazyOnload"
+                />
+                <Script id="chatbase-config" strategy="lazyOnload">
+                    {`
                         window.embeddedChatbotConfig = {
                             chatbotId: "g_bYLFccr_cD36Ukgq0tS",
                             domain: "www.chatbase.co"
                         }
-                    `
-                }} />
-                <script
+                    `}
+                </Script>
+                <Script
                     src="https://www.chatbase.co/embed.min.js"
-                    chatbotId="g_bYLFccr_cD36Ukgq0tS"
-                    domain="www.chatbase.co"
-                    defer>
-                </script>
+                    strategy="lazyOnload"
+                />
             </body>
         </html>
     )
